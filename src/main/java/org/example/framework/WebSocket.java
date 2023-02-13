@@ -43,15 +43,10 @@ public class WebSocket extends Endpoint {
   @Override
   public void onOpen(Session session, EndpointConfig endpointConfig) {
     this.session = session;
-    if (!session.isOpen()){
-      System.out.println("Not open");
-    }
-
     session.addMessageHandler(new MessageHandler.Whole<String>() {
      @Override
       public void onMessage(String message) {
         output.setLength(0);
-       System.out.println("Here");
         output.append(message);
       }
     });
